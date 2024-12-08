@@ -4,8 +4,9 @@ title: 메인페이지
 ---
 
 <div>
-    <ul class="list-unstyled">
-        {% for post in site.posts %}
+    <p>포스트 리스트</p>
+    <ul class="post-list list-unstyled">
+        {% for post in paginator.posts %}
           <li class="py-4">
             <a href="{{ post.url | prepend: site.baseurl }}">
               <div class="d-flex justify-content-between align-items-baseline pb-2">
@@ -19,24 +20,24 @@ title: 메인페이지
             </a>
           </li>
         {% endfor %}
-      </ul>
+    </ul>
 
-      <!-- Pagination links -->
-    <div class="pagination">
+    <!-- Pagination links -->
+    <div class="pagination d-flex justify-content-center gap-3 py-4">
         {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}" class="previous">
-            Previous
-        </a>
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="btn btn-outline-primary">&laquo; Previous</a>
         {% else %}
-        <span class="previous">Previous</span>
+            <span class="btn btn-outline-secondary disabled">Previous</span>
         {% endif %}
-        <span class="page_number ">
-        Page: {{ paginator.page }} of {{ paginator.total_pages }}
+        
+        <span class="align-self-center">
+            Page {{ paginator.page }} of {{ paginator.total_pages }}
         </span>
+        
         {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+            <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="btn btn-outline-primary">Next &raquo;</a>
         {% else %}
-        <span class="next ">Next</span>
+            <span class="btn btn-outline-secondary disabled">Next</span>
         {% endif %}
     </div>
 </div>

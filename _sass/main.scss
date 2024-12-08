@@ -5,13 +5,27 @@ body {
 
 a {
     text-decoration: none;
-    color: #222;
 }
 
 h1,h2,h3,h4,h5,p {
     margin: 0;
 }
 h1,h2,h3,h4,h5 {
-    
     letter-spacing: -0.07rem;
+}
+
+// 다크 테마
+.dark-theme {
+    --bs-body-bg: #1a1a1a;
+    --bs-body-color: #ffffff;
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+  }
+  
+// 라이트 테마
+.light-theme {
+    --bs-body-bg: #ffffff;
+    --bs-body-color: #333333;
+    --background-color: #ffffff;
+    --text-color: #333333;
 }
